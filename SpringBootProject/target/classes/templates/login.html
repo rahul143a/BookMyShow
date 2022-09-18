@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login From Dsign</title>
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="icon" href="css/2.png">
+</head>
+<body>
+
+	<div class="loginbox">
+		<img src="css/lovv.png" class="lovv">
+		<h1>Login Here</h1>
+		<form th:action="@{/mainpage}" 
+			method="post" >
+			<p>UserEmail</p>
+			<input type="text" name="username" placeholder="Enter Email">
+		<p>Password</p>
+		<input type="Password" name="password" placeholder="Enter Password">
+	<button type="submit"> Login</button>
+		<a href="#">Forgot Password</a><br>
+		<a th:href="@{/createnewaccount}">Create New Account</a>
+		</form>
+	</div>
+				
+				<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="alert/dist/sweetalert.css">
+	
+
+<span id="status" th:text="${useruser}"></span><br/>
+
+<script type="text/javascript">
+
+var span_Text = document.getElementById("status").innerText;
+ 
+
+ if(span_Text =="faild"){
+	swal("Sorry","You Have Entered Worng Email And Password","error")
+}
+</script>
+
+
+</body>
+</html>

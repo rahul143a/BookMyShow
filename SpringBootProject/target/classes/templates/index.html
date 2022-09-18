@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Custom Website</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<marquee behavior="" direction="left">
+			<img src="css/5.gif" alt="gif" height="150px" width="180px" style="margin-top: 80px;"><img src="css/BookMyShowlogo.png" alt="" srcset="" height="150px" width="300px" style="margin-top: 80px;">
+		</marquee>
+			<nav class="navbar">
+				<img class="logo" src="css/BookMyShowlogo.png">
+				<ul>
+					<li><a class="active" href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">Contact Us</a></li>
+					<li><a href="#">Feedback</a></li>
+
+				</ul>
+			</nav>
+			<div class="center">
+			<h1></h1>
+			<h2>Welcome To BookMyShow</h2>
+			<div class="buttons">
+				<a th:href="@{/registerpage}"><button>Register</button></a>
+				<br>
+				<br>
+				<a th:href="@{/loginpage}"><button>Login</button></a>
+		
+		</div>
+		</div>
+</body>
+</html>

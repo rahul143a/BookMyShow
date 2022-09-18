@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    
+    <link rel="stylesheet" type="text/css" href="css/rr.css">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="alert/dist/sweetalert.css">
+    <link rel="icon" href="css/2.png">
+   </head>
+   <body>
+   
+   
+      
+   <style>
+ i{
+ color:blue;
+ position: fixed;
+ top:69.6%;
+ margin-left: -45px;
+ cursor: pointer;
+ 
+ }
+
+</style>
+	<script src="css/register1.js"></script>
+
+    <div class="container">
+    
+    
+  <img src="css/BookMyShowlogo.png" alt="youtube" style="width: 500px; height: 120px; position: relative; top: -14%; left: -1%;">
+			
+     <div class="container-fluid">
+        <form class="form-group" onsubmit="return validator()" th:action="@{/process_register}" th:object="${user}" 
+			method="post" >
+ 
+
+       <input type="text" th:field="*{firstName}"  id="user" name="firstname" placeholder="First name" class="form-control" required>
+       <br>
+       <input type="text" th:field="*{lastName}"  name="lastname" placeholder="Last name" class="form-control" required>
+       <br>
+       <input type="email" th:field="*{email}"  id="email" name="email" placeholder="Email" class="form-control" required>
+       <br>
+       <input type="number" th:field="*{phoneNumber}"  id="phone" name="phone" placeholder="Phone Number" class="form-control" required>
+       
+       <br>
+       <input type="text" th:field="*{gender}"  id="gender" name="gender" placeholder="Gender" class="form-control" required>
+
+       <br>
+      <input type="Password" th:field="*{password}"  id="password" name="password" placeholder="Password" class="form-control">
+             <i id="visibilityBtn"> <span class="material-symbols-outlined">
+                      visibility
+                    </span></i>
+                    <script type="text/javascript">
+                    const visibilityBtn=document.getElementById("visibilityBtn")
+                    visibilityBtn.addEventListener("click", toggleVisibility)
+                    
+                    function toggleVisibility(){
+                        const passwordInput=document.getElementById("password")
+                        if(passwordInput.type === "password"){
+                        	passwordInput.type = "text"
+                        }else{
+                        	passwordInput.type = "password"
+                        }
+	
+                    	
+                    }
+                    
+                    </script>
+       <br>
+       
+       <button type="submit" id="submit" class="btn">Register</button>
+       <br><br>
+       </form>
+      
+
+    <center>
+    <a  th:href="@{/login}"><button type="submit" class="btn1">Already I Have Account</button></a>
+</center>
+</div>
+</div>
+
+
+<span id="status" th:text="${useruser}"></span><br/>
+
+<script type="text/javascript">
+
+var span_Text = document.getElementById("status").innerText;
+ 
+if (span_Text == "success") {
+	swal("Congrats","Account Created Successfully","success")
+}
+
+else if(span_Text =="useremailfailed"){
+	swal("Sorry","Email Is Are Already Exist","error")
+}
+else if(span_Text =="userphonefailed"){
+	swal("Sorry","Phone Number Is Are Already Exist","error")
+}
+
+</script>
+
+
+</body>
+   </html>
+   
+
